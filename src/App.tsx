@@ -3,11 +3,36 @@ import Header from "./components/Header";
 import Image from "./components/Image";
 import NoButton from "./components/NoButton";
 import YesButton from "./components/YesButton";
+import confetti from "canvas-confetti";
+
 
 const happy = "happy_fox.jpg"
 const idle = "idle_fox.jpg"
 const sad = "sad_fox.jpg"
 
+var colors = ["#ffffff", "#F01E2C"];
+var end = 0;
+
+function frame(){
+  confetti({
+    particleCount: 2,
+    angle: 60,
+    spread: 55,
+    origin: { x: 0 },
+    colors: colors
+  });
+  confetti({
+    particleCount: 2,
+    angle: 120,
+    spread: 55,
+    origin: { x: 1 },
+    colors: colors
+  });
+
+  if (Date.now() < end) {
+    requestAnimationFrame(frame);
+  }
+}
 
 function App(){
   const [foxImage, setFoxImage] = useState(idle);
@@ -28,6 +53,8 @@ function App(){
     setFoxImage(happy);
     setTitle(2);
     document.getElementById("no_button")!.style.visibility = "hidden";
+    end = Date.now() + (15 * 200);
+    frame();
   }
 
   const moveNoButton = () => {
