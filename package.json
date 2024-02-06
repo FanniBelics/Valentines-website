@@ -1,5 +1,5 @@
 {
-  "homepage": "https://fannibelics.github.io/Valentines-website/",
+  "homepage": "https://fannibelics.github.io/Valentines-website",
   "name": "valentines_website",
   "private": true,
   "version": "0.0.0",
@@ -7,7 +7,7 @@
   "scripts": {
     "start" : "react-scripts start",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
