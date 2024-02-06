@@ -3,7 +3,7 @@ interface Props{
 }
 
 function Image({image}: Props){
-    return <img src = {"src/assets/" + image} ></img>
+    return <img src = {image} ></img>
 }
 
 export default Image;

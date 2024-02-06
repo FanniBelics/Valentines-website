@@ -1,14 +1,13 @@
 import { useState } from "react";
 import Header from "./components/Header";
-import Image from "./components/Image";
 import NoButton from "./components/NoButton";
 import YesButton from "./components/YesButton";
 import confetti from "canvas-confetti";
 
 
-const happy = "happy_fox.jpg"
-const idle = "idle_fox.jpg"
-const sad = "sad_fox.jpg"
+const happy = new URL("./assets/happy_fox.jpg", import.meta.url).href
+const idle = new URL("./assets/idle_fox.jpg", import.meta.url).href
+const sad = new URL( "./assets/sad_fox.jpg", import.meta.url).href
 
 var colors = ["#ffffff", "#F01E2C"];
 var end = 0;
@@ -72,7 +71,7 @@ function App(){
 
   return <div>
     <Header state={title}/>
-    <Image image= {foxImage}></Image>
+    <img src = {foxImage}></img>
     <YesButton onClick={handleYesButtonOnclick}></YesButton>
     <NoButton onMouseOver={handleNoButtonHover} onMouseLeave={handleNoButtonLeave}/>
   </div>
